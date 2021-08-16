@@ -1,8 +1,9 @@
-// Author : Aryan Sharma 133
 // Assignment 1: Find the cheapest walnut in Raghunath Bazaar of Jammu.
 
 #include <stdio.h>
 #include <stdlib.h>
+
+//Line 2 & 3: Including libraray files for the predefined functions used in this program.
 
 struct node{
     int price;
@@ -20,22 +21,28 @@ int insert()
     ptr=(NODE*)malloc(sizeof(NODE));
 
     if(ptr==NULL){
-        printf("\nRAM FULL!!\n");
-    }else{
-        printf("\nEnter shop name: ");
+        printf("\n RAM is FULL!! \n");
+    }
+    else
+    {
+        printf("\nshop name: ");
         scanf("%*c%[^\n]",&ptr->name);
 
-        printf("\nEnter price of walnut: ");
+        printf("\nprice of the walnuts: ");
         scanf("%d",&ptr->price);
 
         if(head == NULL){
             head = ptr ;
             head->next = NULL ;
-        }else{
+        }
+        else
+        {
             if(head->price >= ptr->price){
                 ptr->next = head;
                 head = ptr;
-            }else{
+            }
+            else
+            {
                 ptr->next = head->next;
                 head->next = ptr;
             }
@@ -52,7 +59,7 @@ int cheapest(){
     }  
     else  
     { 
-        printf("\nShop that sells cheapest walnut in Raghunath Bazaar is %s at %d Rs.\n",head->name,head->price);
+        printf("\nShop selling the cheapest walnut in Raghunath Bazaar is %s at %d Rs.\n",head->name,head->price);
     }
 }
 
@@ -64,21 +71,21 @@ int display(){
     }  
     else  
     {  
-        printf("\nData of all shops :\n");   
+        printf("\nData collected of all shops :\n");   
         
         while (ptr != NULL)
         {  
-            printf("-->Shop name: '%s' sells walnut at %d Rs.\n", ptr->name, ptr->price);  
+            printf("-->Shop name: '%s' sells walnuts at %d Rs.\n", ptr->name, ptr->price);  
             ptr = ptr->next;
         }
-    printf("\n-->Data of %d shops in Raghunath Bazaar is present.\n",num);
+    printf("\n-->Data of %d shops in Raghunath Bazaar.\n",num);
     } 
 }
 
 int main(){
     int ch;
     do{
-        printf("\nEnter\n   1.To enter shop details\n   2.To display shop which sells cheapest walnut\n   3.To display cost of walnut of all shops\n   4.To Exit\n");    
+        printf("\nEnter\n   1.Enter shop details\n   2.Display shop detailswith the low cost \n   3.Display the cost of walnuts of all shops\n   4.To Exit\n");    
         scanf("%d",&ch);
         
         switch(ch){
